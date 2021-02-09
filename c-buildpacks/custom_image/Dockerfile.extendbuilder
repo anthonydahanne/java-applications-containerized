@@ -1,0 +1,6 @@
+FROM paketobuildpacks/builder:base
+
+# Install packages that we want to make available
+USER root
+RUN apt update && apt install -y cowsay
+USER cnb
