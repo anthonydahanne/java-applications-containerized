@@ -1,9 +1,12 @@
 package net.dahanne.demo;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientException;
 
 import javax.annotation.PostConstruct;
 
@@ -11,6 +14,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class DemoApplication {
 
+  private static final Log logger = LogFactory.getLog(DemoApplication.class);
 
   private final WebClient webClient;
 
@@ -25,8 +29,14 @@ public class DemoApplication {
 
   @PostConstruct
   public void connectToService() {
-    System.out.println(this.webClient.get().uri("/")
-        .retrieve().bodyToMono(String.class).block());
+    try {
+      logger.info("Trying to fetch data from self signed cert website");
+      logger.info(this.webClient.get().uri("/")
+          .retrieve().bodyToMono(String.class).block());
+    } catch (WebClientException e) {
+      logger.error("Ouch, we could not trust this server certificate; make you sure you add it to your truststore");
+      logger.error("Here's the exception message: " + e.getMessage());
+    }
   }
 
 }
