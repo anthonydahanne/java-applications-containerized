@@ -20,8 +20,18 @@ pack build demo:0.0.1-SNAPSHOT \
 pack build demo:0.0.1-SNAPSHOT \
   --env BP_MAVEN_BUILD_ARGUMENTS="-Dmirror-password=XXX package -DskipTests" \
   --env SERVICE_BINDING_ROOT=/platform/bindings \
-  --volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \ 
-  --builder=paketobuildpacks/builder:base
+  --volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \
+  --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
+  --builder=paketobuildpacks/builder:base \
+  --buildpack=anthonydahanne/meta-paketo-adoptopenjdk:0.0.2
 ```
     
+## With both binding AND adoptopenjdk
 
+```shell
+pack build demo:0.0.1-SNAPSHOT \
+  --env BP_MAVEN_BUILD_ARGUMENTS="-Dmirror-password=XXX package -DskipTests" \
+  --env SERVICE_BINDING_ROOT=/platform/bindings \
+  --volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \
+  --builder=paketobuildpacks/builder:base
+```
