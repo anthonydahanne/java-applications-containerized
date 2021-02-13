@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+# 1. GET ARGS
+plan_path=$2

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Hello from Anthony's buildpack After !"
+
+env_dir=$2/env
+layers_dir=$1
+plan_path=$3
+
+echo "     env_dir: ${env_dir}"
+echo "     layers_dir: ${layers_dir}"
+echo "     plan_path: ${plan_path}"
+echo "     plan contents:"
+cat ${plan_path} | sed 's/^/     /'
+echo
+echo "---> Done"
+
+# 7. SET DEFAULT START COMMAND
+cat >> "${layers_dir}/launch.toml" <<EOL
+[[processes]]
+type = "web"
+command = "echo 'salut after!'"
+
+EOL

@@ -1,0 +1,20 @@
+# Buildpack API version
+api = "0.2"
+
+# Buildpack ID and metadata
+[buildpack]
+id = "hello-anthony"
+uri = "."
+version = "0.0.2"
+name = "Hello from Anthony Buildpack"
+homepage = "https://blog.dahanne.net"
+
+# Stacks that the buildpack will work with
+#[[stacks]]
+#id = "io.buildpacks.samples.stacks.bionic"
+#
+#[[stacks]]
+#id = "io.buildpacks.samples.stacks.alpine"
+#
+[[stacks]]
+id = "net.dahanne.anthony"

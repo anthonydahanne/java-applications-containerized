@@ -1,0 +1,37 @@
+# Buildpacks to include in builder
+[[buildpacks]]
+id = "hello-anthony"
+version = "0.0.2"
+uri = "docker://index.docker.io/anthonydahanne/anthony-buildpack:0.0.2"
+
+[[buildpacks]]
+id = "hello-anthony-after"
+version = "0.0.2"
+uri = "docker://index.docker.io/anthonydahanne/anthony-buildpack-after:0.0.2"
+
+[[buildpacks]]
+id = "simple-web"
+version = "0.0.2"
+uri = "docker://index.docker.io/anthonydahanne/buildpack-simple-web:0.0.2"
+
+# Order used for detection
+[[order]]
+[[order.group]]
+id = "simple-web"
+version = "0.0.2"
+
+[[order]]
+[[order.group]]
+id = "hello-anthony"
+version = "0.0.2"
+
+[[order]]
+[[order.group]]
+id = "hello-anthony-after"
+version = "0.0.2"
+
+# Stack that will be used by the builder
+[stack]
+id = "net.dahanne.anthony"
+run-image = "anthonydahanne/stack-run-debian:10"
+build-image = "anthonydahanne/stack-build-debian:10"

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Hello Simple web"
+
+env_dir=$2/env
+layers_dir=$1
+plan_path=$3
+
+echo "     env_dir: ${env_dir}"
+echo "     layers_dir: ${layers_dir}"
+echo "     plan_path: ${plan_path}"
+echo "     plan contents:"
+cat ${plan_path} | sed 's/^/     /'
+echo
+echo "---> Done"
+
+
+wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat
+chmod +x socat
+
+
+# 7. SET DEFAULT START COMMAND
+# from https://gist.github.com/baleyko/003a089deb4f532552ef674e9ff4cea9
+cat >> "${layers_dir}/launch.toml" <<EOL
+[[processes]]
+type = "web"
+command = './socat -v -d -d TCP-LISTEN:8080,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.1 200 OK;echo Content-Type\: text/html;echo;cat index.html;"'
+
+EOL
