@@ -26,6 +26,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 
 
 		<dependency>
@@ -40,6 +44,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<builder>paketobuildpacks/builder:0.1.64-base</builder>
+						<name>anthonydahanne/${project.artifactId}:${project.version}</name>
+						<env>
+<!--							<BP_BOOT_NATIVE_IMAGE>true</BP_BOOT_NATIVE_IMAGE>-->
+						</env>
+					</image>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

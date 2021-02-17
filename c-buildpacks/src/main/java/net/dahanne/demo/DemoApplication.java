@@ -5,6 +5,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientException;
 
@@ -12,6 +14,7 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 @Service
+@RestController
 public class DemoApplication {
 
   private static final Log logger = LogFactory.getLog(DemoApplication.class);
@@ -37,6 +40,11 @@ public class DemoApplication {
       logger.error("Ouch, we could not trust this server certificate; make you sure you add it to your truststore");
       logger.error("Here's the exception message: " + e.getMessage());
     }
+  }
+
+  @GetMapping("/")
+  public String helloWorld() {
+    return "Bonjour monde !";
   }
 
 }

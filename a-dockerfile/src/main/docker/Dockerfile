@@ -1,5 +1,5 @@
 FROM openjdk
-COPY target/*runner.jar /app/app-runner.jar
+COPY target/*.jar /app/app-runner.jar
 WORKDIR /app
 EXPOSE 8080
 ENTRYPOINT [ "java","-jar" ]
