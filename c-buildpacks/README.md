@@ -2,7 +2,7 @@
 
 ## Simple, no binding
 
-    pack build demo:0.0.1-SNAPSHOT --builder=paketobuildpacks/builder:base
+    pack build demo:0.0.1-SNAPSHOT --builder=paketobuildpacks/builder:0.1.64-base
 
 ## With ca-certificates binding
 
@@ -10,7 +10,7 @@
 pack build demo:0.0.1-SNAPSHOT \
   --env SERVICE_BINDING_ROOT=/platform/bindings \
   --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
-  --builder=docker.io/paketobuildpacks/builder:base
+  --builder=paketobuildpacks/builder:0.1.64-base
 ```
 
 
@@ -23,7 +23,7 @@ pack build demo:0.0.1-SNAPSHOT \
   --volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \
   --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
   --builder=paketobuildpacks/builder:base \
-  --buildpack=anthonydahanne/meta-paketo-adoptopenjdk:0.0.2
+  --buildpack=paketobuildpacks/builder:0.1.64-base
 ```
     
 ## With both binding AND adoptopenjdk
@@ -33,5 +33,5 @@ pack build demo:0.0.1-SNAPSHOT \
   --env BP_MAVEN_BUILD_ARGUMENTS="-Dmirror-password=XXX package -DskipTests" \
   --env SERVICE_BINDING_ROOT=/platform/bindings \
   --volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \
-  --builder=paketobuildpacks/builder:base
+  --builder=paketobuildpacks/builder:0.1.64-base
 ```
