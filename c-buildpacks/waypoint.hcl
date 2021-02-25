@@ -1,8 +1,8 @@
-project = "cbuildpacks"
+project = "c-buildpacks"
 
-app "cbuildpacks" {
+app "c-buildpacks" {
   labels = {
-    "service" = "cbuildpacks",
+    "service" = "c-buildpacks",
     "env"     = "dev"
   }
 
