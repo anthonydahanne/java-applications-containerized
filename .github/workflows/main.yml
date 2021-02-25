@@ -29,4 +29,4 @@ jobs:
       - uses: buildpacks/github-actions/setup-pack@v4.1.0
       
       - name: Build pack
-        run: cd c-buildpacks && pack build myapp --builder=paketobuildpacks/builder:base
+        run: cd c-buildpacks && pack build myapp --env BP_MAVEN_BUILD_ARGUMENTS="--batch-mode -Dmaven.test.skip=true package" --builder=paketobuildpacks/builder:base
