@@ -2,7 +2,7 @@
 
 ## Classic: build using maven, then package into an image
 
-    ./mvnw clean package
+    ./mvnw package
 
     docker build -f src/main/docker/Dockerfile -t myapp .
 

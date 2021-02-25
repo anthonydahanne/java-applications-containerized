@@ -1,7 +1,7 @@
 FROM openjdk:11 as build
 COPY . /workspace
 WORKDIR /workspace
-RUN ./mvnw clean package
+RUN ./mvnw package -DskipTests
 
 FROM azul/zulu-openjdk-alpine:11
 COPY --from=build /workspace/target/*.jar /app/app-runner.jar
