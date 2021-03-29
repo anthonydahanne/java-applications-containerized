@@ -30,7 +30,7 @@ pack build demo:0.0.1-SNAPSHOT \
 pack build demo:0.0.1-SNAPSHOT \
 --env BP_MAVEN_BUILD_ARGUMENTS="-Dmirror-password=$ARTIFACTORY_TOKEN package -DskipTests" \
 --env SERVICE_BINDING_ROOT=/platform/bindings \
---volume $PWD/bi./nding/maven-settings:/platform/bindings/maven-settings \
+--volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \
 --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
 --builder=paketobuildpacks/builder:0.1.64-base \
 --buildpack=anthonydahanne/meta-paketo-adoptopenjdk:0.0.2
