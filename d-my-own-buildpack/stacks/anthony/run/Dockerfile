@@ -1,4 +1,4 @@
-FROM debian
+FROM anthonydahanne/anthony-base-stack
 
 # Set required CNB information
 ARG stack_id
