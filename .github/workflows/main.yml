@@ -29,9 +29,9 @@ jobs:
       - uses: buildpacks/github-actions/setup-pack@v4.1.0
       
       - name: Build pack
-        run: cd c-buildpacks && pack build anthonydahanne/buildwithpack:gh-actions --builder=paketobuildpacks/builder:base
+        run: cd c-buildpacks && pack build anthonydahanne/c-buildpacks:gh-actions --builder=paketobuildpacks/builder:base
 
       - name: Push to Docker Hub
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push anthonydahanne/buildwithpack:gh-actions
+          docker push anthonydahanne/c-buildpacks:gh-actions
