@@ -47,5 +47,6 @@ See [.github/workflows/main.yml](.github/workflows/main.yml)
 
 ## Using waypoint!
 
+    waypoint install --platform=kubernetes -accept-tos
     waypoint init
     waypoint up

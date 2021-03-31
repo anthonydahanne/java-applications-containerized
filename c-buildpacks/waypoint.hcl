@@ -8,7 +8,7 @@ app "c-buildpacks" {
 
   build {
     use "pack" {
-      builder = "paketobuildpacks/builder:0.1.64-base"
+      builder = "paketobuildpacks/builder:0.1.87-base"
       disable_entrypoint = true
     }
     registry {
