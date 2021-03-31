@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.2</version>
+		<version>2.5.0-M3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.dahanne</groupId>
@@ -46,7 +46,14 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<builder>paketobuildpacks/builder:0.1.64-base</builder>
+<!--					<bindings>
+							<binding>/Users/anthony.dahanne/workspaces/java-applications-containerized/c-buildpacks/binding/ca-certificates:/platform/bindings/my-certificates:ro</binding>
+						</bindings>
+						<buildpacks>
+							<buildpack>gcr.io/paketo-buildpacks/adopt-openjdk:latest</buildpack>
+							<buildpack>paketo-buildpacks/java</buildpack>
+						</buildpacks>-->
+						<builder>paketobuildpacks/builder:0.1.87-base</builder>
 						<name>anthonydahanne/${project.artifactId}:${project.version}</name>
 						<env>
 <!--							<BP_BOOT_NATIVE_IMAGE>true</BP_BOOT_NATIVE_IMAGE>-->
@@ -56,5 +63,25 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots><enabled>true</enabled></snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>https://repo.spring.io/snapshot</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
