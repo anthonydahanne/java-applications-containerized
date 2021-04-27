@@ -37,6 +37,14 @@ pack build demo:0.0.1-SNAPSHOT \
 --buildpack=anthonydahanne/meta-paketo-adoptopenjdk:0.0.2
 ```
 
+## Rebase image on latest run image
+
+    pack rebase demo:0.0.1-SNAPSHOT
+
+or
+
+    pack rebase demo:0.0.1-SNAPSHOT --run-image gcr.io/paketo-buildpacks/run
+
 ## Directly from maven !
 
     mvn spring-boot:build-image

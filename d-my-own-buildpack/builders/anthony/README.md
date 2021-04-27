@@ -7,3 +7,9 @@ Use it:
 ```shell
 pack build test  --builder anthonydahanne/anthony-builder:0.0.2
 ```
+
+Inspect it!
+
+```shell
+ pack builder inspect anthonydahanne/anthony-builder:0.0.2
+```
