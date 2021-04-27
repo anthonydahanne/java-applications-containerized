@@ -1,0 +1,21 @@
+{
+  "name": "java-applications-containerized",
+  "version": "1.0.0",
+  "description": "This repository contains all code samples used during the presentation named \"Java applications containerized and deployed\".",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonydahanne/java-applications-containerized.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonydahanne/java-applications-containerized/issues"
+  },
+  "homepage": "https://github.com/anthonydahanne/java-applications-containerized#readme"
+}
