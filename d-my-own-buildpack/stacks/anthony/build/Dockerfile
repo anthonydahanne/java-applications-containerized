@@ -1,4 +1,4 @@
-FROM anthonydahanne/anthony-base-stack
+FROM anthonydahanne/stack-base-debian:10
 
 # Install packages that we want to make available at build time
 RUN apt-get update && \
