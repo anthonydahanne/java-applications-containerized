@@ -26,5 +26,7 @@ cat >> "${layers_dir}/launch.toml" <<EOL
 [[processes]]
 type = "web"
 command = './socat -v -d -d TCP-LISTEN:8080,crlf,reuseaddr,fork SYSTEM:"echo HTTP/1.1 200 OK;echo Content-Type\: text/html;echo;cat index.html;"'
-
+# the default field is new
+# see https://buildpacks.io/docs/reference/spec/migration/buildpack-api-0.5-0.6/#buildpacks-contribute-default-process-type
+default = true
 EOL

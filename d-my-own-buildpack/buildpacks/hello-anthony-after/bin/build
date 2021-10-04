@@ -20,5 +20,7 @@ cat >> "${layers_dir}/launch.toml" <<EOL
 [[processes]]
 type = "web"
 command = "echo 'salut after!'"
-
+# the default field is new
+# see https://buildpacks.io/docs/reference/spec/migration/buildpack-api-0.5-0.6/#buildpacks-contribute-default-process-type
+default = true
 EOL
