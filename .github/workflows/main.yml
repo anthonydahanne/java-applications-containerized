@@ -26,12 +26,15 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - uses: buildpacks/github-actions/setup-pack@v4.1.0
+      - uses: buildpacks/github-actions/setup-pack@v4.3.1
       
-      - name: Build pack
-        run: cd c-buildpacks && pack build anthonydahanne/c-buildpacks:gh-actions --builder=paketobuildpacks/builder:base
-
-      - name: Push to Docker Hub
+      - name: Run pack build and publish
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push anthonydahanne/c-buildpacks:gh-actions
+          cd c-buildpacks
+          pack build anthonydahanne/c-buildpacks:gh-actions \
+            --env SERVICE_BINDING_ROOT=/platform/bindings \
+            --env BP_JVM_VERSION=17 \
+            --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
+            --builder=paketobuildpacks/builder:0.1.181-base \
+            --publish
