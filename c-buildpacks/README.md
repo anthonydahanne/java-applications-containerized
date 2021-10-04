@@ -2,7 +2,7 @@
 
 ## Simple, no binding
 
-    pack build demo:0.0.1-SNAPSHOT --builder=paketobuildpacks/builder:0.1.87-base
+    pack build demo:0.0.1-SNAPSHOT --builder=paketobuildpacks/builder:0.1.181-base
 
 ## With ca-certificates binding and Liberica 16
 
@@ -22,7 +22,7 @@ pack build demo:0.0.1-SNAPSHOT \
   --env BP_MAVEN_BUILD_ARGUMENTS="-Dmirror-password=$ARTIFACTORY_TOKEN package -DskipTests" \
   --env SERVICE_BINDING_ROOT=/platform/bindings \
   --volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \
-  --builder=paketobuildpacks/builder:0.1.87-base
+  --builder=paketobuildpacks/builder:0.1.181-base
 ```
 
 ## With both binding AND adoptopenjdk
@@ -33,7 +33,7 @@ pack build demo:0.0.1-SNAPSHOT \
 --env SERVICE_BINDING_ROOT=/platform/bindings \
 --volume $PWD/binding/maven-settings:/platform/bindings/maven-settings \
 --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
---builder=paketobuildpacks/builder:0.1.87-base \
+--builder=paketobuildpacks/builder:0.1.181-base \
 --buildpack=anthonydahanne/meta-paketo-adoptopenjdk:0.0.2
 ```
 
