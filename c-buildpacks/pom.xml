@@ -14,7 +14,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 	</properties>
 
 	<dependencies>
@@ -65,9 +65,10 @@
 <!--						</buildpacks>-->
 						<builder>paketobuildpacks/builder:0.1.181-base</builder>
 						<name>anthonydahanne/${project.artifactId}:${project.version}</name>
-<!--						<env>-->
+						<env>
+							<BP_JVM_VERSION>17</BP_JVM_VERSION>
 <!--							<BP_BOOT_NATIVE_IMAGE>true</BP_BOOT_NATIVE_IMAGE>-->
-<!--						</env>-->
+						</env>
 					</image>
 				</configuration>
 			</plugin>

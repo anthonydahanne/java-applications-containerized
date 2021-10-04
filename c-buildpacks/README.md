@@ -4,14 +4,14 @@
 
     pack build demo:0.0.1-SNAPSHOT --builder=paketobuildpacks/builder:0.1.181-base
 
-## With ca-certificates binding and Liberica 16
+## With ca-certificates binding and Liberica 17
 
 ```shell
 pack build demo:0.0.1-SNAPSHOT \
   --env SERVICE_BINDING_ROOT=/platform/bindings \
-  --env BP_JVM_VERSION=16 \
+  --env BP_JVM_VERSION=17 \
   --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
-  --builder=paketobuildpacks/builder:base
+  --builder=paketobuildpacks/builder:0.1.181-base
 ```
 
 
