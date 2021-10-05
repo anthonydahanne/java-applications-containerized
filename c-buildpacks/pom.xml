@@ -60,7 +60,7 @@
 							<binding>${basedir}/binding/ca-certificates:/platform/bindings/my-certificates:ro</binding>
 						</bindings>
 <!--						<buildpacks>-->
-<!--							<buildpack>gcr.io/paketo-buildpacks/adopt-openjdk:latest</buildpack>-->
+<!--							<buildpack>gcr.io/paketo-buildpacks/adoptium</buildpack>-->
 <!--							<buildpack>paketo-buildpacks/java</buildpack>-->
 <!--						</buildpacks>-->
 						<builder>paketobuildpacks/builder:0.1.181-base</builder>
