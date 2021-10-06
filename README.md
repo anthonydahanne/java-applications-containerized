@@ -19,3 +19,6 @@ For more detail and context, check out those blog posts:
 
 * [Slides](https://www.slideshare.net/anthonydahanne/java-applications-containerized-and-deployed)
 * [Confoo 2021 page](https://confoo.ca/en/yul2021/session/java-applications-containerized-and-deployed-2021-edition)
+* [recording at Global Summit for Java Devs 2021](https://youtu.be/BqipSKH9cdU?t=28416)
+* [CNCF Eastern Canada April 2021 recording](https://youtu.be/AnhcT5fOmPc?t=3913)
+* [JCon One page](https://sched.co/k3M5)
