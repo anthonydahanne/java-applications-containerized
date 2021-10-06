@@ -6,9 +6,9 @@ name: Native build and deploy to Fly
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ native ]
   pull_request:
-    branches: [ master ]
+    branches: [ native ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
           cd c-buildpacks
           pack build anthonydahanne/c-buildpacks:gh-actions-native \
             --env SERVICE_BINDING_ROOT=/platform/bindings \
-            --env BP_BOOT_NATIVE_IMAGE=true \
+            --env BP_NATIVE_IMAGE=true \
             --env BP_JVM_VERSION=16 \
             --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
             --builder=paketobuildpacks/builder:0.1.181-base \
