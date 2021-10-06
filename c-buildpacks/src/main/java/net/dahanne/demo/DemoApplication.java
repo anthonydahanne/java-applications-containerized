@@ -44,7 +44,7 @@ public class DemoApplication {
 
   @GetMapping("/")
   public String helloWorld() {
-    return "Bonjour monde !";
+    return "Hallo Welt !";
   }
 
 }
