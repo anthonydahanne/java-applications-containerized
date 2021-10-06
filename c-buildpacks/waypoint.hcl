@@ -8,8 +8,11 @@ app "c-buildpacks" {
 
   build {
     use "pack" {
-      builder = "paketobuildpacks/builder:0.1.87-base"
+      builder = "paketobuildpacks/builder:0.1.181-base"
       disable_entrypoint = true
+      static_environment = {
+        BP_JVM_VERSION=17
+      }
     }
     registry {
       use "docker" {
