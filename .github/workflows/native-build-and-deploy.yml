@@ -1,0 +1,49 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Native build and deploy to Fly
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - uses: buildpacks/github-actions/setup-pack@v4.3.1
+      
+      - name: Run pack build and publish
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          cd c-buildpacks
+          pack build anthonydahanne/c-buildpacks:gh-actions-native \
+            --env SERVICE_BINDING_ROOT=/platform/bindings \
+            --env BP_BOOT_NATIVE_IMAGE=true \
+            --env BP_JVM_VERSION=16 \
+            --volume $PWD/binding/ca-certificates/:/platform/bindings/my-certificates \
+            --builder=paketobuildpacks/builder:0.1.181-base \
+            --publish
+
+
+      # This step runs `flyctl deploy`.
+      - uses: superfly/flyctl-actions@1.1
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        with:
+          args: "deploy"
