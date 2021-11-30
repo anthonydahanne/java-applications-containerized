@@ -63,7 +63,7 @@
 <!--							<buildpack>gcr.io/paketo-buildpacks/adoptium</buildpack>-->
 <!--							<buildpack>paketo-buildpacks/java</buildpack>-->
 <!--						</buildpacks>-->
-						<builder>paketobuildpacks/builder:0.1.181-base</builder>
+						<builder>paketobuildpacks/builder:0.1.210-base</builder>
 						<name>anthonydahanne/${project.artifactId}:${project.version}</name>
 						<env>
 							<BP_JVM_VERSION>17</BP_JVM_VERSION>

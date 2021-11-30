@@ -61,7 +61,8 @@
                     </from>
                     <to>
                         <image>anthonydahanne/jib-${project.name}:${project.version}</image>
-                        <credHelper>desktop.exe</credHelper>
+<!--                        <credHelper>desktop.exe</credHelper>-->
+                        <credHelper>osxkeychain</credHelper>
                     </to>
                     <container>
                         <jvmFlags>-Djavax.net.ssl.trustStore=/ca-certificates/cacerts.jks</jvmFlags>
